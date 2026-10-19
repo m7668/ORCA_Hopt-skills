@@ -1,4 +1,4 @@
-# ORCA SMM Input Preparation
+# ORCA_Hopt-skills
 
 用于个人 SMM 工作流的 Codex skill：从 XYZ 或普通 ORCA 笛卡尔坐标块准备 `.inp`，保留坐标原文，按需整理配位层顺序。
 
@@ -6,9 +6,17 @@
 
 ## 安装与调用
 
-将仓库克隆或解压到 Codex 的 skills 目录，确保路径为 `~/.codex/skills/orca-smm-input-preparation/SKILL.md`。Windows 的默认目录为 `%USERPROFILE%\.codex\skills`。重新加载技能后可直接调用：
+仓库和显示名称为 `ORCA_Hopt-skills`；技能标识和调用名为 `orca-hopt-skills`，采用小写字母和连字符。
 
-> 使用 $orca-smm-input-preparation，按默认仅优化 H 方案处理这份 XYZ。电荷 +1、多重度 6，保留原子顺序。
+将仓库克隆或解压到 Codex 的 skills 目录，安装文件夹命名为 `orca-hopt-skills`，确保路径为 `~/.codex/skills/orca-hopt-skills/SKILL.md`。Windows 的默认目录为 `%USERPROFILE%\.codex\skills`。例如：
+
+```bash
+git clone https://github.com/m7668/ORCA_Hopt-skills.git ~/.codex/skills/orca-hopt-skills
+```
+
+重新加载技能后可直接调用：
+
+> 使用 $orca-hopt-skills，按默认仅优化 H 方案处理这份 XYZ。电荷 +1、多重度 6，保留原子顺序。
 
 需要重排时明确提出“中心金属 → 第一配位层 → 其余重原子 → C → H”，并提供已知配位原子编号。没有编号时由代理结合结构判断，存在影响结果的歧义再讨论。
 

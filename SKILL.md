@@ -1,9 +1,9 @@
 ---
-name: orca-smm-input-preparation
+name: orca-hopt-skills
 description: Prepare ORCA inputs from XYZ structures for the user's SMM workflow, using the saved hydrogen-only optimization protocol or a supplied reference input. Use for coordinate replacement, coordination-sphere atom ordering, and input validation; not for magnetic-property calculations or general method selection.
 ---
 
-# ORCA SMM Input Preparation
+# ORCA_Hopt-skills
 
 Prepare an ORCA `.inp` without changing the supplied geometry. Respond in Simplified Chinese unless the user chooses another language. The saved protocol optimizes hydrogen positions; it is the user's standing default, not a method to redesign on each request.
 
