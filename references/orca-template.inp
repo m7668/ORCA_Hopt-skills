@@ -1,17 +1,13 @@
-! BP def2-SVP def2/J D3BJ
-! Opt
-! DefGrid2 PAL8 SlowConv
-
+! BP def2-svp def2/j d3bj
+! opt
+! defgrid2 pal8 slowconv
 %maxcore 8000
-
 %basis
-  NewGTO Dy "def2-TZVP" end
+ newgto Y "def2-tzvp" end
 end
-
 %geom
-  OptimizeHydrogens true
+ optimizehydrogens true
 end
-
 * xyz <charge> <multiplicity>
 <REORDERED_COORDINATE_RECORDS>
 *

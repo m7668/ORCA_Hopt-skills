@@ -92,6 +92,18 @@ def parse_indices(value, count):
     return indices
 
 
+def replace_dy_with_y(atoms):
+    """Replace element tokens only; preserve spacing and coordinate strings."""
+    converted = [Atom('Y', a.xyz, re.sub(r'^(\s*)Dy(?=\s)', r'\1Y', a.line))
+                 if a.element == 'Dy' else a for a in atoms]
+    if len(converted) != len(atoms) or any(a.xyz != b.xyz for a, b in zip(atoms, converted)):
+        raise ValueError('Metal substitution changed coordinate values')
+    if any(b.element != ('Y' if a.element == 'Dy' else a.element)
+           for a, b in zip(atoms, converted)):
+        raise ValueError('Unexpected element substitution')
+    return converted
+
+
 def atom_order(atoms, metal, sphere, element_order=None):
     if not metal or set(metal) & set(sphere):
         raise ValueError("Supply metal atoms and a disjoint first-sphere assignment")
@@ -157,12 +169,12 @@ def render(template, atoms, order, charge, multiplicity):
     return result
 
 
-def mapping_csv(atoms, order):
+def mapping_csv(source_atoms, atoms, order):
     buffer = io.StringIO(newline="")
     writer = csv.writer(buffer)
-    writer.writerow(["source_1based", "output_1based", "source_0based", "output_0based", "element"])
+    writer.writerow(["source_1based", "output_1based", "source_0based", "output_0based", "source_element", "output_element"])
     for new, old in enumerate(order):
-        writer.writerow([old + 1, new + 1, old, new, atoms[old].element])
+        writer.writerow([old + 1, new + 1, old, new, source_atoms[old].element, atoms[old].element])
     return buffer.getvalue()
 
 
@@ -173,15 +185,18 @@ def main(argv=None):
     parser.add_argument("--charge", required=True, type=int)
     parser.add_argument("--multiplicity", required=True, type=int)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--reorder", action="store_true")
+    parser.add_argument("--keep-order", action="store_true", help="Retain source order instead of coordination-sphere ordering")
+    parser.add_argument("--dy-to-y", action="store_true", help="Also apply Dy-to-Y substitution with a custom template")
     parser.add_argument("--metal-atoms", help="1-based source indices, comma-separated")
     parser.add_argument("--sphere-atoms", help="1-based source indices, or none")
     parser.add_argument("--element-order", help="Remaining heavy elements, e.g. Si,N,O")
     parser.add_argument("--map", type=Path, dest="mapping", help="Optional atom index mapping CSV")
     args = parser.parse_args(argv)
     try:
-        atoms = parse_structure(read_text(args.structure))
-        if args.reorder:
+        source_atoms = parse_structure(read_text(args.structure))
+        saved_protocol = args.template.resolve() == DEFAULT_TEMPLATE.resolve()
+        atoms = replace_dy_with_y(source_atoms) if saved_protocol or args.dy_to_y else source_atoms
+        if not args.keep_order:
             if args.metal_atoms is None or args.sphere_atoms is None:
                 raise ValueError("Reordering requires --metal-atoms and --sphere-atoms")
             metal = parse_indices(args.metal_atoms, len(atoms))
@@ -189,14 +204,18 @@ def main(argv=None):
             order = atom_order(atoms, metal, sphere, args.element_order)
         else:
             if args.metal_atoms is not None or args.sphere_atoms is not None or args.element_order:
-                raise ValueError("Ordering flags require --reorder")
+                raise ValueError("Ordering flags cannot be combined with --keep-order")
             metal = []
             order = list(range(len(atoms)))
-        if args.template.resolve() == DEFAULT_TEMPLATE.resolve():
+        if saved_protocol:
             central = metal or [i for i, a in enumerate(atoms) if a.element in METALS]
-            if not central or any(atoms[i].element != "Dy" for i in central):
-                raise ValueError("Saved template is for Dy; supply a reviewed --template for other metals")
-        result = render(read_text(args.template), atoms, order, args.charge, args.multiplicity)
+            if not central or any(atoms[i].element != "Y" for i in central):
+                raise ValueError("Saved template is for Y (Dy is converted to Y); supply a reviewed --template for other metals")
+        template = read_text(args.template)
+        if args.dy_to_y and not saved_protocol:
+            # Element-scoped basis/ECP assignments must follow the substitution.
+            template = re.sub(r'(?i)(\b(?:newgto|addgto|newecp|delecp)\s+)Dy\b', r'\1Y', template)
+        result = render(template, atoms, order, args.charge, args.multiplicity)
         destinations = [args.output] + ([args.mapping] if args.mapping else [])
         if len({p.resolve() for p in destinations}) != len(destinations):
             raise ValueError("Output and mapping paths must differ")
@@ -209,9 +228,11 @@ def main(argv=None):
             handle.write(result)
         if args.mapping:
             with args.mapping.open("x", encoding="utf-8", newline="") as handle:
-                handle.write(mapping_csv(atoms, order))
+                handle.write(mapping_csv(source_atoms, atoms, order))
         print(json.dumps({"output": str(args.output.resolve()), "atom_count": len(atoms),
+                          "source_elements": dict(Counter(a.element for a in source_atoms)),
                           "elements": dict(Counter(a.element for a in atoms)),
+                          "dy_to_y_count": sum(a.element != b.element for a, b in zip(source_atoms, atoms)),
                           "charge": args.charge, "multiplicity": args.multiplicity,
                           "reordered": order != list(range(len(atoms))),
                           "coordinates_preserved": True, "orca_executed": False}, ensure_ascii=False))

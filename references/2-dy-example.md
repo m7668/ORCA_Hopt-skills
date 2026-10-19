@@ -1,6 +1,6 @@
 # 2-Dy case record
 
-This is historical context for one structure, not defaults for new inputs.
+This is historical context for one original Dy structure, not defaults for new inputs or the Y-substituted Hopt model. In particular, its Dy multiplicity must not be reused automatically after Dy-to-Y replacement.
 
 - Label: `2-Dy`.
 - Reported modeled species: isolated cation `DySi5C32NH71`, 110 atoms; no counterion included.

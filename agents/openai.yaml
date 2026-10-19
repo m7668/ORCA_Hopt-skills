@@ -1,4 +1,4 @@
 interface:
   display_name: "ORCA_Hopt-skills"
-  short_description: "Prepare SMM inputs with the saved H-only optimization protocol"
-  default_prompt: "Use $orca-hopt-skills to prepare an ORCA input from my structure with the saved hydrogen-only optimization protocol."
+  short_description: "Prepare Dy-to-Y Hopt inputs with coordination-sphere atom ordering"
+  default_prompt: "Use $orca-hopt-skills to replace Dy with Y and prepare a hydrogen-only optimization input with coordination-sphere atom ordering."

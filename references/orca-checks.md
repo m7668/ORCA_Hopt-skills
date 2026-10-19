@@ -6,7 +6,9 @@ Read when a basis/ECP question, indexed setting, or execution request makes thes
 
 Inspect the global orbital basis, metal override, auxiliary basis, relativistic Hamiltonian (if any), and effective core potential together. ORCA's manual explicitly notes that `NewGTO` does not automatically assign the ECP in the same way as applicable global basis keywords. An inherited global ECP can also remain after a basis override. Therefore neither the presence nor absence of a `NewECP` line alone establishes correctness.
 
-For the saved Dy template, verify the actual installed ORCA version's basis/ECP assignment when execution or compatibility validation is requested. Do not infer from this package that the template has passed ORCA. When using ZORA/DKH or another relativistic model, check the matching orbital and auxiliary basis family rather than replacing only the metal symbol.
+For the saved Y template, the generated structure contains Y in place of Dy, so inspect the Y basis/ECP assignment rather than retaining Dy-specific settings. Verify the actual installed ORCA version's assignment when execution or compatibility validation is requested. This package does not establish that the template has passed ORCA. For a custom ZORA/DKH or other relativistic model, check the matching orbital and auxiliary basis family as a whole.
+
+Charge and multiplicity refer to the substituted Y model. Dy's electronic configuration and multiplicity cannot simply be transferred to Y. Use the user's explicit values; infer or discuss missing assignments from the actual modeled species. Example values in documentation are not standing defaults.
 
 Source: [ORCA 6.1 basis sets and ECPs](https://www.faccts.de/docs/orca/6.1/manual/contents/essentialelements/basisset.html), especially assignment/adding basis functions and effective core potentials. Consult the installed version's documentation when different.
 
