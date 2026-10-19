@@ -1,0 +1,4 @@
+interface:
+  display_name: "ORCA SMM Input Preparation"
+  short_description: "Prepare SMM inputs with the saved H-only optimization protocol"
+  default_prompt: "Use $orca-smm-input-preparation to prepare an ORCA input from my structure with the saved hydrogen-only optimization protocol."
