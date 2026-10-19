@@ -1,0 +1,48 @@
+&GATEWAY
+<BASIS_SET_COORDINATE_BLOCKS>
+
+ANGM
+0.000 0.000 0.000
+
+&SEWARD
+AMFI
+DOUG
+medium cholesky
+Threshold = 1.0d-11
+Cutoff = 1.0d-11
+
+>>> COPY $CurrDir/<INITIAL_ORBITAL_FILE> INPORB
+
+&RASSCF
+lumorb
+* CAS(9e,7o) calculation for Dy(III) SINGLE_ANISO
+spin = 6
+Nactel = 9 0 0
+ras2 = 7
+Inactive = <INACTIVE_ORBITALS>
+ciroot = 21,21,1
+Thrs
+1.0e-07,1.0e-03,1.0e-04
+>>> COPY $Project.JobIph JOB_21S6_CAS_9e_7o
+>>> COPY JOB_21S6_CAS_9e_7o JOB001
+
+&RASSI
+Nr of JobIph
+1 21
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+spin
+MEES
+PROP
+3
+'ANGMOM' 1
+'ANGMOM' 2
+'ANGMOM' 3
+
+&SINGLE_ANISO
+mltp
+8
+2 2 2 2 2 2 2 2
+CRYS
+DY
+UBAR
+>>> RM JOB001

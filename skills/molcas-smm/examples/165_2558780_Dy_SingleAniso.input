@@ -1,0 +1,171 @@
+  &gateway
+    basis set
+    Dy.ANO-RCC-VTZP
+    Dy1       0.00000     0.00000     0.00000   Angstrom
+    end of basis
+    basis set
+    N.ANO-RCC-VDZP
+    N2       -1.63237    -1.47950     0.07099   Angstrom
+    end of basis
+    basis set
+    Si.ANO-RCC-VDZP
+    Si8      -2.13656    -1.99373    -1.48446   Angstrom
+    Si9      -1.97566    -1.59458     1.74568   Angstrom
+    Si10      1.41603     3.12391     2.35398   Angstrom
+    Si11      0.56850     3.81188    -1.40181   Angstrom
+    Si12      3.67762    -1.11525    -0.96136   Angstrom
+    end of basis
+    basis set
+    C.ANO-RCC-VDZ
+    C3        1.53303     1.99562     0.84321   Angstrom
+    C4        1.28196     2.27360    -0.56306   Angstrom
+    C5        1.91067     1.22793    -1.30057   Angstrom
+    C6        2.56058     0.30714    -0.42127   Angstrom
+    C7        2.31810     0.79596     0.88301   Angstrom
+    C13      -0.94454    -0.93233    -2.55295   Angstrom
+    C14      -1.34065     0.56346    -2.50073   Angstrom
+    C15      -0.75117    -1.33481    -4.03458   Angstrom
+    C16      -3.93362    -1.49770    -1.86512   Angstrom
+    C17      -4.93570    -2.42706    -1.15612   Angstrom
+    C18      -4.33605    -1.34062    -3.33954   Angstrom
+    C19      -1.88982    -3.84655    -1.74253   Angstrom
+    C20      -2.37502    -4.37381    -3.09688   Angstrom
+    C21      -0.45428    -4.31504    -1.49345   Angstrom
+    C22      -0.23063    -1.33637     2.53425   Angstrom
+    C23       0.87064    -2.23282     1.92139   Angstrom
+    C24      -0.24423    -1.50754     4.06280   Angstrom
+    C25      -2.84705    -3.16912     2.32103   Angstrom
+    C26      -2.01469    -4.45159     2.13777   Angstrom
+    C27      -3.41991    -3.10500     3.73627   Angstrom
+    C28      -2.93438    -0.03309     2.24536   Angstrom
+    C29      -4.40802    -0.07980     1.82482   Angstrom
+    C30      -2.29185     1.20672     1.60036   Angstrom
+    C31       2.86818     4.31482     2.23530   Angstrom
+    C32       1.59485     2.05789     3.86922   Angstrom
+    C33      -0.17911     4.07907     2.50691   Angstrom
+    C34       1.31000     5.38178    -0.70332   Angstrom
+    C35      -1.30007     3.92303    -1.27312   Angstrom
+    C36       1.10074     3.72774    -3.19584   Angstrom
+    C37       2.68782    -2.30595    -1.99896   Angstrom
+    C38       4.40969    -1.92994     0.54269   Angstrom
+    C39       5.06011    -0.43327    -2.00583   Angstrom
+    end of basis
+    basis set
+    H.ANO-RCC-VDZ
+    H40       0.09733    -1.06020    -2.12117   Angstrom
+    H41      -1.58400     0.97931    -1.48637   Angstrom
+    H42      -2.29809     0.71514    -3.03612   Angstrom
+    H43      -0.58693     1.22944    -2.96497   Angstrom
+    H44      -0.32207    -2.35033    -4.12545   Angstrom
+    H45      -0.07192    -0.63172    -4.56167   Angstrom
+    H46      -1.72105    -1.32962    -4.56805   Angstrom
+    H47      -4.02283    -0.49222    -1.38638   Angstrom
+    H48      -4.95016    -3.43500    -1.62003   Angstrom
+    H49      -5.96864    -2.02462    -1.21692   Angstrom
+    H50      -4.70214    -2.56605    -0.08025   Angstrom
+    H51      -3.73507    -0.57919    -3.87769   Angstrom
+    H52      -5.39831    -1.02788    -3.42568   Angstrom
+    H53      -4.23303    -2.29102    -3.90045   Angstrom
+    H54      -2.53842    -4.29118    -0.95083   Angstrom
+    H55      -3.44432    -4.15347    -3.28386   Angstrom
+    H56      -2.25940    -5.47723    -3.15513   Angstrom
+    H57      -1.79754    -3.94891    -3.94192   Angstrom
+    H58       0.22431    -3.97725    -2.30433   Angstrom
+    H59      -0.38696    -5.42314    -1.46352   Angstrom
+    H60      -0.04380    -3.93382    -0.53478   Angstrom
+    H61       0.09793    -0.25970     2.40005   Angstrom
+    H62       0.99465    -2.13851     0.81142   Angstrom
+    H63       0.62286    -3.30269     2.06038   Angstrom
+    H64       1.86356    -2.03550     2.37037   Angstrom
+    H65      -1.02372    -0.88660     4.54670   Angstrom
+    H66       0.73175    -1.23342     4.51442   Angstrom
+    H67      -0.44689    -2.56376     4.32969   Angstrom
+    H68      -3.70325    -3.22271     1.60653   Angstrom
+    H69      -1.57716    -4.53368     1.12318   Angstrom
+    H70      -2.63634    -5.35551     2.30707   Angstrom
+    H71      -1.17945    -4.49866     2.86824   Angstrom
+    H72      -2.61977    -3.10079     4.50374   Angstrom
+    H73      -4.05586    -3.99135     3.94411   Angstrom
+    H74      -4.04644    -2.20743     3.91307   Angstrom
+    H75      -2.87290     0.08286     3.35056   Angstrom
+    H76      -4.50068    -0.19930     0.72517   Angstrom
+    H77      -4.94490     0.85228     2.10141   Angstrom
+    H78      -4.95510    -0.92239     2.29241   Angstrom
+    H79      -1.21796     1.36561     1.87921   Angstrom
+    H80      -2.78596     2.15780     1.88703   Angstrom
+    H81      -2.38284     1.15875     0.48694   Angstrom
+    H82       1.93674     1.16201    -2.39847   Angstrom
+    H83       2.71101     0.33988     1.80336   Angstrom
+    H84       3.82382     3.75274     2.19040   Angstrom
+    H85       2.90484     4.96965     3.13118   Angstrom
+    H86       2.81599     4.96202     1.34279   Angstrom
+    H87       0.78219     1.30529     3.94921   Angstrom
+    H88       1.54603     2.68326     4.78471   Angstrom
+    H89       2.56218     1.51604     3.90001   Angstrom
+    H90      -0.48505     4.59363     1.57536   Angstrom
+    H91      -0.04827     4.86439     3.28083   Angstrom
+    H92      -1.02505     3.44415     2.83573   Angstrom
+    H93       2.41728     5.35277    -0.73888   Angstrom
+    H94       0.99920     5.61207     0.33255   Angstrom
+    H95       0.98096     6.23049    -1.33971   Angstrom
+    H96      -1.65537     3.75450    -0.23552   Angstrom
+    H97      -1.82442     3.20564    -1.93481   Angstrom
+    H98      -1.63602     4.93819    -1.57020   Angstrom
+    H99       0.74844     4.62849    -3.73997   Angstrom
+    H100      0.70124     2.84745    -3.74119   Angstrom
+    H101      2.20663     3.70075    -3.27786   Angstrom
+    H102      1.83840    -2.75859    -1.44740   Angstrom
+    H103      3.32068    -3.14651    -2.35203   Angstrom
+    H104      2.27973    -1.80537    -2.90213   Angstrom
+    H105      4.93087    -1.18743     1.18177   Angstrom
+    H106      5.16567    -2.68164     0.23405   Angstrom
+    H107      3.66510    -2.45826     1.17075   Angstrom
+    H108      4.68196     0.07640    -2.91603   Angstrom
+    H109      5.73275    -1.25209    -2.33638   Angstrom
+    H110      5.67261     0.29994    -1.44209   Angstrom
+    end of basis
+    angm
+      0.000 0.000 0.000
+  &seward
+    AMFI
+    DOUG
+    medium cholesky
+    Threshold
+      1.0d-11
+    Cutoff
+      1.0d-11
+  &rasscf
+    lumorb
+    spin
+      6
+    Nactel
+      9 0 0
+    ras2
+      7
+    Inactive
+      198
+    ciroot
+      21,21,1
+    Thrs
+      1.0e-07,1.0e-03,1.0e-04
+ >>> COPY $Project.JobIph JOB_21S6_CAS_9e_7o
+ >>> COPY JOB_21S6_CAS_9e_7o JOB001
+  &rassi
+    Nr of JobIph
+      1 21
+      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+    spin
+    MEES
+    PROP
+      3
+    'ANGMOM' 1
+    'ANGMOM' 2
+    'ANGMOM' 3
+  &SINGLE_ANISO
+    mltp
+      8
+      2 2 2 2 2 2 2 2
+    CRYS
+    DY
+    UBAR
+ >>> RM JOB001

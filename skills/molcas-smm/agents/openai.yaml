@@ -1,0 +1,4 @@
+interface:
+  display_name: "MOLCAS"
+  short_description: "Prepare native Dy SMM CASSCF-RASSI-SINGLE_ANISO inputs"
+  default_prompt: "Use $molcas-smm to prepare a native-format Dy(III) magnetic-anisotropy input from my metal-centered coordinates and check its orbital-file requirements."
